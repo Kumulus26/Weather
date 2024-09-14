@@ -8,19 +8,18 @@ function Navbar() {
       <ul>
         <li className="navbar-item">
           <HomeIcon className="icon" />
-          <span>Weather</span>
+          <span>Accueil</span>
         </li>
         <li className="navbar-item">
           <ViewListIcon className="icon" />
-          <span>Cities</span>
+          <span>Villes</span>
         </li>
         <li className="navbar-item">
           <MapIcon className="icon" />
-          <span>Map</span>
+          <span>Carte</span>
         </li>
         <li className="navbar-item">
           <CogIcon className="icon" />
-          <span>Settings</span>
         </li>
       </ul>
     </nav>

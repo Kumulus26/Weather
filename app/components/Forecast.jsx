@@ -1,29 +1,40 @@
 import React from 'react';
-import Image from 'next/image'; // ou <img> si tu n'utilises pas Next.js
+import Image from 'next/image';
 
 function Forecast() {
-  const hourlyData = [
-    { time: '6:00 AM', temp: '25°C', icon: '/img/cloudy.png' },
-    { time: '9:00 AM', temp: '28°C', icon: '/img/sunny_cloudy.png' },
-    { time: '12:00 PM', temp: '33°C', icon: '/img/sunny.png' },
-    { time: '3:00 PM', temp: '34°C', icon: '/img/sunny.png' },
-    { time: '6:00 PM', temp: '32°C', icon: '/img/sunny.png' },
-    { time: '9:00 PM', temp: '30°C', icon: '/img/sunny_cloudy.png' },
-  ];
-
   return (
-    <div className="forecast-container">
-      <h3>Today's Forecast</h3>
-      <div className="forecast-grid">
-        {hourlyData.map((hour, index) => (
-          <div key={index} className="forecast-item">
-            <p>{hour.time}</p>
-            <Image src={hour.icon} alt="weather icon" width={40} height={40} />
-            <p>{hour.temp}</p>
-          </div>
-        ))}
-      </div>
+    <div class="hourly-forecast">
+    <div class="forecast-item">
+        <b><p>06:00</p></b>
+        <Image src="/img/sunny.png" width="30" height="30"/>
+        <b><p>6°</p></b>
     </div>
+    <div class="forecast-item">
+        <b><p>9:00 AM</p></b>
+        <Image src="/img/sunny.png" width="30" height="30"/>
+        <b><p>28°</p></b>
+    </div>
+    <div class="forecast-item">
+        <b><p>12:00</p></b>
+        <Image src="/img/sunny.png" width="30" height="30"/>
+        <b><p>15°</p></b>
+    </div>
+    <div class="forecast-item">
+        <b><p>15:00</p></b>
+        <Image src="/img/sunny.png" width="30" height="30"/>
+        <b><p>19°</p></b>
+    </div>
+    <div class="forecast-item">
+        <b><p>18:00</p></b>
+        <Image src="/img/sunny.png" width="30" height="30"/>
+        <b><p>17°</p></b>
+    </div>
+    <div class="forecast-item">
+        <b><p>21:00</p></b>
+        <Image src="/img/sunny.png" width="30" height="30"/>
+        <b><p>12°</p></b>
+    </div>
+</div>
   );
 }
 

@@ -5,13 +5,16 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+    theme: {
+      extend: {
+      fontFamily: {
+        sans: ['Inter var', 'system-ui', 'sans-serif'],
+        colors: {
+          background: "var(--background)",
+          foreground: "var(--foreground)",
       },
     },
   },
   plugins: [],
-};
+}
+}

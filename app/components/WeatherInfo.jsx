@@ -3,22 +3,22 @@ import Image from 'next/image';
 
 function WeatherInfo() {
   return (
-    <div className="weather-info">
-      <div className="city-name">
-        <h2>Paris</h2>
-        <p>Chance of rain: 18%</p>
-      </div>
-      <div className="weather-details">
-        <h1>15°C</h1>
+    <div className="temperature-mtn">
+        <div className="ville-temp">
+            <b><h2>Paris</h2></b>
+            <p>Risque de pluie : 18%</p>
+        </div>
+        <div className="temp">
+            <b><h1>15°</h1></b>
+        </div>
         <Image
-          src="/image/sun.png"
+          src="/img/sunny.png"
           alt="Soleil"
-          width={50}
-          height={50}
+          width={150}
+          height={150}
         />
       </div>
-    </div>
-  );
+    );
 }
 
 export default WeatherInfo;

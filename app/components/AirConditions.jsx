@@ -1,26 +1,29 @@
 import React from 'react';
-
 function AirConditions() {
-  const airData = [
-    { label: 'Real Feel', value: '30°C' },
-    { label: 'Wind', value: '0.2 km/h' },
-    { label: 'Chance of rain', value: '0%' },
-    { label: 'UV Index', value: '3' },
-  ];
-
   return (
-    <div className="air-conditions-container">
-      <h3>Air Conditions</h3>
-      <div className="air-conditions-grid">
-        {airData.map((condition, index) => (
-          <div key={index} className="air-condition-item">
-            <p>{condition.label}</p>
-            <h4>{condition.value}</h4>
-          </div>
-        ))}
-      </div>
-      <button className="see-more-button">See more</button>
+    <div class="air-conditions">
+    <div class="condition1">
+    <h1>Qualité de l'air : <b>Moyenne</b></h1>
+        <div class="condition-item">
+                <b><p> 🌡️   Ressenti</p></b>
+                <h3>17°</h3>
+        </div>
+        <div class="condition-item">
+                <b><p> 💧   Précipitations</p></b>
+                <h3>0%</h3>
+        </div>
     </div>
+    <div class="condition2">
+        <div class="condition-item">
+                <b><p> 💨   Vent</p></b>
+                <h3>0.2 km/h</h3>
+        </div>
+        <div class="condition-item">
+                <b><p> ☀️ Indice UV</p></b>
+                <h3>3</h3>
+        </div>
+    </div>
+</div>
   );
 }
 
