@@ -14,8 +14,8 @@ function WeatherInfo() {
         <Image
           src="/img/sunny.png"
           alt="Soleil"
-          width={150}
-          height={150}
+          width={125}
+          height={125}
         />
       </div>
     );
