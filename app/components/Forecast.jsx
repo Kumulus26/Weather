@@ -4,21 +4,24 @@ import Image from 'next/image';
 function Forecast() {
   return (
     <div className="hourly-forecast">
+    <div className="forecast-media1">
     <div className="forecast-item">
         <b><p>06:00</p></b>
         <Image src="/img/nuit.png" width="30" height="30"/>
         <b><p>6°</p></b>
     </div>
     <div className="forecast-item">
-        <b><p>9:00 AM</p></b>
+        <b><p>9:00</p></b>
         <Image src="/img/sunny.png" width="30" height="30"/>
-        <b><p>28°</p></b>
+        <b><p>11°</p></b>
     </div>
     <div className="forecast-item">
         <b><p>12:00</p></b>
         <Image src="/img/sunny.png" width="30" height="30"/>
         <b><p>15°</p></b>
     </div>
+    </div>
+    <div className="forecast-media2">
     <div className="forecast-item">
         <b><p>15:00</p></b>
         <Image src="/img/sunny.png" width="30" height="30"/>
@@ -33,6 +36,7 @@ function Forecast() {
         <b><p>21:00</p></b>
         <Image src="/img/nuit.png" width="30" height="30"/>
         <b><p>12°</p></b>
+    </div>
     </div>
 </div>
   );

@@ -3,16 +3,16 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
+body {
+  background-color: #94a3b8;
+  background-size: cover;
+  background-position: center;
+  background-attachement: fixed;
+}
 .app-grid {
   display: grid;
   grid-template-columns: 80px 1fr;
   height: 100vh;
-  background-color: #94a3b8;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachement: fixed;
-  min-height: 100vh;
 }
 
 .navbar {
@@ -86,6 +86,7 @@
   grid-template-columns: 60% 40%;
   gap: 20px;
   padding: 20px;
+  margin-right: 10px;
 }
 
 .left-column {
@@ -130,7 +131,7 @@
 
 .forecast-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   color: white;
@@ -173,6 +174,7 @@
 .hourly-forecast {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   background-color: #1f2937;
   border: none;
   border-radius: 12px;
@@ -225,11 +227,13 @@
     justify-content: space-around;
     align-items: center;
     padding: 10px;
+    margin-top: 15px;
   }
 
-  .narbar-item {
+  .navbar-item {
     margin: 0 10px;
     display: inline-block;
+    height: 50px;
   }
 
   .main-content {
@@ -252,7 +256,7 @@
     font-size: 48px;
   }
 
-  .air-conditions, .right-column, .hourly-forecast {
+  .air-conditions, .right-column {
     flex-direction: column;
     padding: 10px;
   }
@@ -271,5 +275,23 @@
   .condition-item h3 {
     display: flex;
     justify-content: center;
+  }
+
+  .ville-temp {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .hourly-forecast {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .temp {
+    img {
+      width: 80%;
+      height: auto;
+    }
   }
 }

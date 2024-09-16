@@ -19,7 +19,7 @@ function PrevisionsWeather() {
         {dailyData.map((day, index) => (
           <div key={index} className="prevision-item">
             <p>{day.day}</p>
-            <Image src="/img/misoleilminuage.png" alt="weather icon" width={40} height={40} />
+            <Image src="/img/misoleilminuage.png" alt="Nuageux avec du soleil" width={40} height={40} />
             <p>{day.maxTemp} / {day.minTemp}</p>
           </div>
         ))}
