@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 
 function SearchBar() {
   return <>
@@ -9,7 +8,6 @@ function SearchBar() {
         placeholder="Rechercher des villes"
         className="search-input"
       />
-        <Button variant="Dark">GO!</Button>
     </div>
     </>
 }

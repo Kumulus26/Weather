@@ -8,6 +8,11 @@
   grid-template-columns: 80px 1fr;
   height: 100vh;
   background-color: #94a3b8;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachement: fixed;
+  min-height: 100vh;
 }
 
 .navbar {
@@ -20,7 +25,7 @@
   height: 98vh;
   border: none;
   border-radius: 12px;
-   
+  font-family: 'Quicksand', sans-serif;
 }
 
 .navbar ul {
@@ -51,11 +56,13 @@
   height: 100vh;
 }
 
+/* Barre de recherche */
 .search-bar {
   display: flex;
   justify-content: center;
   padding: 20px;
-  width: 90vh;
+  width: 95vh;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .search-input {
@@ -66,7 +73,7 @@
   border-radius: 12px;
   background-color: #1f2937;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .search-input:focus {
@@ -81,6 +88,7 @@
   padding: 20px;
 }
 
+/* Colonnes principales */
 .left-column {
   display: grid;
   grid-template-rows: auto auto auto;
@@ -118,7 +126,7 @@
 
 .temperature-mtn h2 {
   font-size: 64px;
-  margin-top: 0px
+  margin-top: 0px;
 }
 
 .forecast-item {
@@ -127,10 +135,9 @@
   justify-content: space-between;
   align-items: center;
   color: white;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
-/* Prévisions météo */
 .previsions-list {
   display: flex;
   flex-direction: column;
@@ -155,32 +162,13 @@
   color: white;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Quicksand', sans-serif;
 }
 
 .previsions-container h3 {
   font-size: 20px;
   margin-bottom: 20px;
   color: #a0aec0;
-}
-
-.previsions-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.prevision-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #2d3748;
-}
-
-.prevision-item img {
-  width: 40px;
-  height: 40px;
 }
 
 .hourly-forecast {
@@ -225,4 +213,52 @@
 .condition1 h1 {
   font-size: 20px;
   color: white;
+}
+
+/* Media Queries pour Mobile */
+@media (max-width: 768px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .main-content {
+    grid-template-rows: 1fr;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .temperature-mtn h2 {
+    font-size: 48px;
+  }
+
+  .temp h1 {
+    font-size: 48px;
+  }
+
+  .air-conditions, .right-column, .hourly-forecast {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .condition1, .condition2 {
+    margin-top: 0;
+  }
+
+  .prevision-item img {
+    width: 30px;
+    height: 30px;
+  }
 }

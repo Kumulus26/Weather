@@ -6,7 +6,7 @@ function AirConditions() {
     <h1>Qualité de l'air : <b>Moyenne</b></h1>
         <div class="condition-item">
                 <b><p> 🌡️   Ressenti</p></b>
-                <h3>17°</h3>
+                <h3>14°</h3>
         </div>
         <div class="condition-item">
                 <b><p> 💧   Précipitations</p></b>
@@ -16,7 +16,7 @@ function AirConditions() {
     <div class="condition2">
         <div class="condition-item">
                 <b><p> 💨   Vent</p></b>
-                <h3>0.2 km/h</h3>
+                <h3>3.6 km/h</h3>
         </div>
         <div class="condition-item">
                 <b><p> ☀️ Indice UV</p></b>

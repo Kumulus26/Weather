@@ -3,10 +3,10 @@ import Image from 'next/image';
 
 function PrevisionsWeather() {
   const dailyData = [
-    { day: 'Lun', icon: '/img/sunny.png', maxTemp: '21°C', minTemp: '9°C' },
-    { day: 'Mar', icon: '/img/sunny.png', maxTemp: '20°C', minTemp: '10°C' },
+    { day: 'Lun', icon: '/img/nuageux.png', maxTemp: '21°C', minTemp: '9°C' },
+    { day: 'Mar', icon: '/img/nuageux.png', maxTemp: '20°C', minTemp: '10°C' },
     { day: 'Mer', icon: '/img/sunny.png', maxTemp: '23°C', minTemp: '12°C' },
-    { day: 'Jeu', icon: '/img/sunny.png', maxTemp: '22°C', minTemp: '12°C' },
+    { day: 'Jeu', icon: '/img/misoleilminuage.png', maxTemp: '22°C', minTemp: '12°C' },
     { day: 'Ven', icon: '/img/sunny.png', maxTemp: '21°C', minTemp: '12°C' },
     { day: 'Sam', icon: '/img/sunny.png', maxTemp: '23°C', minTemp: '12°C' },
     { day: 'Dim', icon: '/img/sunny.png', maxTemp: '22°C', minTemp: '13°C' },
@@ -19,7 +19,7 @@ function PrevisionsWeather() {
         {dailyData.map((day, index) => (
           <div key={index} className="prevision-item">
             <p>{day.day}</p>
-            <Image src="/img/sunny.png" alt="weather icon" width={40} height={40} />
+            <Image src="/img/misoleilminuage.png" alt="weather icon" width={40} height={40} />
             <p>{day.maxTemp} / {day.minTemp}</p>
           </div>
         ))}
