@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomeIcon, MapIcon, CogIcon, ViewListIcon } from '@heroicons/react/solid'; // Tu peux utiliser des icônes similaires
+import { HomeIcon, MapIcon, CogIcon, ViewListIcon } from '@heroicons/react/solid';
 
 
 function Navbar() {

@@ -22,7 +22,7 @@ body {
   justify-content: space-around;
   align-items: center;
   color: white;
-  height: 90vh;
+  height: 98vh;
   border: none;
   border-radius: 12px;
   font-family: 'Quicksand', sans-serif;
@@ -59,7 +59,6 @@ body {
 
 .search-bar {
   display: flex;
-  justify-content: center;
   padding: 20px;
   width: 95vh;
   font-family: 'Quicksand', sans-serif;
@@ -92,7 +91,7 @@ body {
 .left-column {
   display: grid;
   grid-template-rows: auto auto auto;
-  gap: 20px;
+    gap: 20px;
 }
 
 .right-column {
@@ -109,7 +108,7 @@ body {
   padding: 10px;
   border-radius: 12px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -135,7 +134,7 @@ body {
   justify-content: space-between;
   align-items: center;
   color: white;
-  margin-top: 5px;
+  margin-top: 20px;
 }
 
 .previsions-list {
@@ -176,8 +175,8 @@ body {
   justify-content: space-around;
   align-items: center;
   background-color: #1f2937;
-  border: none;
   border-radius: 12px;
+  padding-bottom: 20px;
 }
 
 .condition1 {
@@ -198,8 +197,6 @@ body {
 .air-conditions {
   display: flex;
   justify-content: space-around;
-  padding-left: 20px;
-  padding-top: 20px;
   background-color: #1f2937;
   border: none;
   border-radius: 12px;
@@ -214,6 +211,10 @@ body {
 .condition1 h1 {
   font-size: 20px;
   color: white;
+}
+
+.search-bar button {
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -233,7 +234,7 @@ body {
   .navbar-item {
     margin: 0 10px;
     display: inline-block;
-    height: 50px;
+    height: 15px;
   }
 
   .main-content {
@@ -288,10 +289,14 @@ body {
     justify-content: space-around;
   }
 
-  .temp {
-    img {
-      width: 80%;
-      height: auto;
-    }
+  .temperature-mtn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .search-bar {
+    display: flex;
+    flex-direction: column;
   }
 }

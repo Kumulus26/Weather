@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import Image from 'next/image';
 
@@ -5,7 +6,7 @@ function WeatherInfo() {
   return (
     <div className="temperature-mtn">
         <div className="ville-temp">
-            <b><h2>Paris</h2></b>
+            <b><h2>Paris</h2></b> 
             <p>Risque de pluie : 18%</p>
         </div>
         <div className="temp">
