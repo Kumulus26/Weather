@@ -6,18 +6,34 @@ import Forecast from './components/Forecast';
 import AirConditions from './components/AirConditions';
 import SearchBar from './components/SearchBar';
 import PrevisionsWeather from './components/PrevisionsWeather';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
 
-const [city, setCity] = useState('');
+const [city, setCity] = useState('Paris');
 const [weatherData, setWeatherData] = useState(null);
-const handleCitySearch = async (searchedCity) => {
-  setCity(searchedCity);
-  const reponse = await fetch(`/api/weather?city='${searchedCity}`);
-  const data = await Response.json();
 
-  setWeatherData(data);
+const fetchWeatherData = async (city) => {
+  try {
+    const response = await fetch(`/api/weather?city=${city}`);
+    
+    if (!response.ok) {
+      throw new Error(`Erreur lors de la récupération des données météo pour ${city}`);
+    }
+    
+    const data = await response.json();
+    setWeatherData(data);
+  } catch (error) {
+    console.error("Erreur lors de la récupération des données météo :", error);
+  }
+};
+
+useEffect(() => {
+  fetchWeatherData(city);
+}, [city]);
+
+const handleCitySearch = (searchedCity) => {
+  setCity(searchedCity); 
 };
 
   return (
@@ -26,10 +42,10 @@ const handleCitySearch = async (searchedCity) => {
       <Navbar />
       </div>
       <div className="main-content">
-        <SearchBar />
+        <SearchBar onCitySearch={handleCitySearch}/>
         <div className="main-grid">
           <div className="left-column">
-            <WeatherInfo />
+            <WeatherInfo city={city} weatherData={weatherData}/>
             <Forecast />
             <AirConditions />
           </div>
