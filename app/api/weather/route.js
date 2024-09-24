@@ -18,9 +18,10 @@ export async function GET(request) {
     }
 
     const data = await response.json();
+    const temperatureArrondi = Math.round(data.main.temp);
 
     return NextResponse.json({
-      temperature: data.main.temp,
+      temperature: temperatureArrondi,
       condition: data.weather[0].description,
     });
   } catch (error) {
