@@ -1,33 +1,74 @@
-'use client'
-import React from 'react';
-import Image from 'next/image';
+'use client';
+import React, { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun, faCloud, faBolt, faSnowflake, faCloudRain, faCloudSun, faSmog } from '@fortawesome/free-solid-svg-icons';
+
+// Dictionnaire pour mapper les descriptions météo aux icônes Font Awesome
+const weatherIconMap = {
+  "clear sky": faSun,
+  "few clouds": faCloudSun,
+  "scattered clouds": faCloud,
+  "broken clouds": faCloudSun,
+  "shower rain": faCloudRain,
+  "rain": faCloudRain,
+  "thunderstorm": faBolt,
+  "snow": faSnowflake,
+  "mist": faSmog,
+};
+
+// Fonction pour obtenir l'icône correspondant à la condition météo
+function getWeatherIcon(condition) {
+  return weatherIconMap[condition.toLowerCase()] || faSun;  // Par défaut : Soleil
+}
 
 function WeatherInfo({ city, weatherData }) {
+  const [iconVisible, setIconVisible] = useState(false);
+
+  useEffect(() => {
+    // Observer pour activer le lazy loading
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setIconVisible(true);
+      }
+    });
+
+    const element = document.getElementById('weather-icon');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => {
+      if (element) {
+        observer.unobserve(element);
+      }
+    };
+  }, []);
+
   if (!city) {
-    return <p>.</p>;
+    return <p>Ville non spécifiée.</p>;
   }
 
   if (!weatherData) {
     return <p>Chargement des données pour {city}...</p>;
   }
 
+  const temperature = weatherData.temperature !== undefined ? `${weatherData.temperature}°C` : 'Température indisponible';
+  const weatherCondition = weatherData.condition || 'clear sky';  
+  const weatherIcon = getWeatherIcon(weatherCondition);
+
   return (
-    <div className="temperature-mtn">
-        <div className="ville-temp">
-            <b><h2>{city}</h2></b> 
-            <p>Risque de pluie : 18%</p>
-        </div>
-        <div className="temp">
-            <b><h1>{weatherData.temperature}°C</h1></b>
-        </div>
-        <Image
-          src="/img/sunny.png"
-          alt="Soleil"
-          width={125}
-          height={125}
-        />
+    <div className="weather-info flex items-center justify-between p-4 bg-gray-800 text-white rounded-xl">
+      <div className="ville-temp">
+        <h2 className="text-3xl font-bold">{city}</h2>
       </div>
-    );
+      <div className="temp">
+        <p className="text-6xl font-bold">{temperature}</p>
+      </div>
+      <div className="temp-media" id="weather-icon">
+        {iconVisible && <FontAwesomeIcon icon={weatherIcon} size="3x" />}  {/* Lazy load l'icône */}
+      </div>
+    </div>
+  );
 }
 
 export default WeatherInfo;
