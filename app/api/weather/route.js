@@ -8,7 +8,7 @@ export async function GET(request) {
     return NextResponse.json({ error: 'City parameter is required' }, { status: 400 });
   }
 
-  const apiKey = process.env.OPENWEATHER_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   try {

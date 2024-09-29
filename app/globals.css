@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
 body {
   background-size: cover;
@@ -159,42 +160,26 @@ body {
   }
 
   .navbar {
-    background-color: #1f2937;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 95vh;
   }
   
-  .navbar ul {
-    list-style-type: none;
-  }
 
   .navbar-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin-bottom: 2rem;
-    cursor: pointer;
-    color: white; 
-    padding: 0.5rem;
-    border-radius: 0.75rem;
-    transition: background-color 0.3s;
   }
 
   .navbar-item:hover {
-    background-color: #374151; /* Correspond à hover:bg-gray-700 */
+    background-color: #374151;
   }
 
   .icon {
-    height: 2rem; /* Correspond à h-8 */
-    width: 2rem; /* Correspond à w-8 */
+    height: 2rem;
+    width: 2rem;
   }
 
   .navbar-item p {
-    font-size: 0.75rem; /* Correspond à text-xs */
-    margin-top: 0.25rem; /* Correspond à space-y-1 */
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
   }
 
   .main-content {
@@ -320,5 +305,8 @@ body {
       border-bottom: 3px solid #2d3748;
     }
 
-    
+    .previsions-box {
+      padding-top: 10px;
+      margin-top: 30px;
+    }
 }

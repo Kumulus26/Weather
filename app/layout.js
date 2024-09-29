@@ -1,7 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false; 
 
 
@@ -36,6 +35,8 @@ export default function RootLayout({ children }) {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
           />
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossOrigin="anonymous" />
+
         </noscript>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>

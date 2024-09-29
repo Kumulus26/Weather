@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faCloud, faBolt, faSnowflake, faCloudRain, faCloudSun, faSmog } from '@fortawesome/free-solid-svg-icons';
 
-// Dictionnaire pour mapper les descriptions météo aux icônes Font Awesome
 const weatherIconMap = {
   "clear sky": faSun,
   "few clouds": faCloudSun,
@@ -16,16 +15,14 @@ const weatherIconMap = {
   "mist": faSmog,
 };
 
-// Fonction pour obtenir l'icône correspondant à la condition météo
 function getWeatherIcon(condition) {
-  return weatherIconMap[condition.toLowerCase()] || faSun;  // Par défaut : Soleil
+  return weatherIconMap[condition.toLowerCase()] || faSun;
 }
 
 function WeatherInfo({ city, weatherData }) {
   const [iconVisible, setIconVisible] = useState(false);
 
   useEffect(() => {
-    // Observer pour activer le lazy loading
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         setIconVisible(true);
@@ -65,7 +62,7 @@ function WeatherInfo({ city, weatherData }) {
         <p className="text-6xl font-bold">{temperature}</p>
       </div>
       <div className="temp-media" id="weather-icon">
-        {iconVisible && <FontAwesomeIcon icon={weatherIcon} size="3x" />}  {/* Lazy load l'icône */}
+        {iconVisible && <FontAwesomeIcon icon={weatherIcon} size="3x" />}
       </div>
     </div>
   );
