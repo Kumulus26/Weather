@@ -41,11 +41,11 @@ function PrevisionsWeatherFiveDays({ city }) {
   }
 
   return (
-    <div className="previsions-container">
+    <div className="previsionsFiveDays-container">
       <h3>Prévisions sur 5 jours pour {city}</h3>
-      <div className="previsions-list">
+      <div className="previsionsFiveDays-list">
         {dailyData.map((day, index) => (
-          <div key={index} className="prevision-item">
+          <div key={index} className="previsionFiveDays-item">
             <p>{new Date(day.dt * 1000).toLocaleDateString('fr-FR', { weekday: 'short' })}</p>
             <Image
               src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`}

@@ -46,7 +46,7 @@ function App() {
       ) : (
         <div className="app-grid">
           <div className="navbar-box">
-            <Navbar onSelectCity={handleSelectCityFromNavbar} /> {/* On passe la fonction ici */}
+            <Navbar onSelectCity={handleSelectCityFromNavbar} />
           </div>
           <div className="main-content">
             <SearchBar onCitySearch={handleCitySearch} />
