@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { HomeIcon, MapIcon, CogIcon, ViewListIcon } from '@heroicons/react/solid';
 import { ListGroup, Button } from 'react-bootstrap';
 
 function Navbar({ onSelectCity }) {
   const [showCities, setShowCities] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const cityListRef = useRef(null);
 
   const toggleCities = () => {
     setShowCities(!showCities);
@@ -14,32 +16,75 @@ function Navbar({ onSelectCity }) {
     setShowCities(false);
   };
 
+  const handleClickOutside = (event) => {
+    if (cityListRef.current && !cityListRef.current.contains(event.target)) {
+      setShowCities(false);
+    }
+  };
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    localStorage.setItem('darkMode', newDarkMode); // Sauvegarde la préférence dans le localStorage
+  };
+
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+    setIsDarkMode(savedDarkMode); // Récupère la préférence au chargement de la page
+
+    if (savedDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [isDarkMode]);
+
+  useEffect(() => {
+    if (showCities) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showCities]);
+
   return (
     <>
       <nav className="navbar">
         <ul>
           <li className="navbar-item">
-            <Button variant="outline-light">
+            <Button variant="outline-light" className="navbar-button">
               <HomeIcon className="icon" />
               <p>Accueil</p>
             </Button>
           </li>
           <li className="navbar-item">
-            <Button variant="outline-light" onClick={toggleCities}>
+            <Button variant="outline-light" onClick={toggleCities} className="navbar-button">
               <ViewListIcon className="icon" />
               <p>Villes</p>
             </Button>
           </li>
           <li className="navbar-item">
-              <Button variant="outline-light">
-                <MapIcon className="icon" />
-                <p>Carte</p>
-              </Button>
+            <Button variant="outline-light" className="navbar-button">
+              <MapIcon className="icon" />
+              <p>Carte</p>
+            </Button>
           </li>
           <li className="navbar-item">
-            <Button variant="outline-light">
+            <Button variant="outline-light" className="navbar-button" onClick={toggleDarkMode}>
               <CogIcon className="icon" />
-              <p>Settings</p>
+              <p>Mode</p>
             </Button>
           </li>
         </ul>
@@ -54,7 +99,7 @@ function Navbar({ onSelectCity }) {
             left: 0,
             width: '100vw',
             height: '100vh',
-            backgroundColor: 'rgba(0, 0, 0, 0.7)', // Fond semi-transparent
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
             zIndex: 9999,
             display: 'flex',
             justifyContent: 'center',
@@ -63,6 +108,7 @@ function Navbar({ onSelectCity }) {
           }}
         >
           <div
+            ref={cityListRef}
             className="city-list-container"
             style={{
               backgroundColor: '#fff',
@@ -72,18 +118,18 @@ function Navbar({ onSelectCity }) {
               width: '400px',
               maxWidth: '80vw',
               maxHeight: '80vh',
-              overflowY: 'auto', // Permet de scroller si la liste est longue
+              overflowY: 'auto',
               animation: 'slideDown 0.5s ease-in-out',
             }}
           >
-            <h4 className="text-center mb-4">Sélectionnez une ville</h4>
+            <h4 className="text-center mb-4 text-black text-2xl font-quicksand">Sélectionnez une ville</h4>
             <ListGroup>
-              {['Paris', 'Marseille', 'Lyon', 'Bordeaux', 'Nice'].map((city) => (
+              {['Paris', 'Londres', 'New York', 'Berlin', 'Pekin', 'Istanbul', 'Shanghai', 'Bombay'].map((city) => (
                 <ListGroup.Item
                   key={city}
                   action
-                  onClick={() => handleCityClick(city)}  // Sélectionner une ville
-                  className="text-center"
+                  onClick={() => handleCityClick(city)}
+                  className="text-center font-quicksand"
                 >
                   {city}
                 </ListGroup.Item>

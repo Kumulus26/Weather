@@ -7,6 +7,7 @@ import AirConditions from './components/AirConditions';
 import SearchBar from './components/SearchBar';
 import PrevisionsWeather from './components/PrevisionsWeather';
 import Loading from './components/Loading';
+import Heure from './components/Heure';
 
 function App() {
   const [city, setCity] = useState('Paris');
@@ -52,9 +53,10 @@ function App() {
             <SearchBar onCitySearch={handleCitySearch} />
             <div className="main-grid">
               <div className="left-column">
+                <Heure className="heure-box" city={city} />
                 <WeatherInfo city={city} weatherData={weatherData} />
                 <Forecast />
-                <AirConditions />
+                <AirConditions city={city} />
               </div>
               <div className="previsions-box">
                 <PrevisionsWeather />
