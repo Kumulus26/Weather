@@ -54,7 +54,7 @@ function WeatherInfo({ city, weatherData }) {
   const weatherIcon = getWeatherIcon(weatherCondition);
 
   return (
-    <div className="weather-info flex items-center justify-between p-4 bg-gray-800 text-white rounded-xl">
+    <div className="weather-info-box">
       <div className="ville-temp">
         <h2 className="text-3xl font-bold">{city}</h2>
       </div>

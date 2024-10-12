@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import axios from 'axios';
 
 function PrevisionsWeatherFiveDays({ city }) {
   const [dailyData, setDailyData] = useState([]);
@@ -11,33 +12,31 @@ function PrevisionsWeatherFiveDays({ city }) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
 
     try {
-      const response = await fetch(apiUrl);
-      if (!response.ok) {
-        throw new Error('Erreur lors de la récupération des données météo.');
-      }
-
-      const data = await response.json();
-
-      const filteredData = data.list.filter((reading) =>
+      const response = await axios.get(apiUrl);
+      const filteredData = response.data.list.filter((reading) =>
         reading.dt_txt.includes("12:00:00")
       );
-
       setDailyData(filteredData);
       setIsLoading(false);
     } catch (error) {
-      console.error('Erreur lors de la récupération des données météo :', error);
+      console.error('Erreur lors de la récupération des données de prévisions météo :', error);
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
     if (city) {
+      setIsLoading(true);
       fetchWeatherData();
     }
   }, [city]);
 
   if (isLoading) {
     return <p>Chargement des prévisions...</p>;
+  }
+
+  if (!dailyData.length) {
+    return <p>Aucune prévision disponible pour {city}. Vérifiez le nom de la ville ou réessayez plus tard.</p>;
   }
 
   return (

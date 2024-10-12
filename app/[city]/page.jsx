@@ -6,14 +6,14 @@ import WeatherInfo from '../components/WeatherInfo';
 import Forecast from '../components/Forecast';
 import AirConditions from '../components/AirConditions';
 import SearchBar from '../components/SearchBar';
-import PrevisionsWeather from '../components/PrevisionsWeather';
+import PrevisionsWeatherFiveDays from '../components/PrevisionsWeatherFiveDays';
 import Loading from '../components/Loading';
 import Heure from '../components/Heure';
 
 function App() {
   const router = useRouter();
   const params = useParams();
-  const city = decodeURIComponent(params.city || 'Paris');
+  const city = decodeURIComponent(params.city || 'Paris'); // Récupère la ville depuis les paramètres de l'URL
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -34,16 +34,16 @@ function App() {
 
   useEffect(() => {
     if (city) {
-      fetchWeatherData(city);
+      fetchWeatherData(city); // Récupère les données météo pour la ville de l'URL
     }
   }, [city]);
 
   const handleCitySearch = (searchedCity) => {
-    router.push(`/${searchedCity}`);
+    router.push(`/${searchedCity}`); // Redirige vers la nouvelle ville
   };
 
   const handleSelectCityFromNavbar = (selectedCity) => {
-    router.push(`/${selectedCity}`);
+    router.push(`/${selectedCity}`); // Redirige via la navbar vers la nouvelle ville
   };
 
   return (
@@ -65,7 +65,8 @@ function App() {
                 <AirConditions city={city} />
               </div>
               <div className="previsions-box">
-                <PrevisionsWeather />
+                {/* Transmet la ville au composant PrevisionsWeatherFiveDays */}
+                <PrevisionsWeatherFiveDays city={city} />
               </div>
             </div>
           </div>

@@ -5,7 +5,7 @@ import WeatherInfo from './components/WeatherInfo';
 import Forecast from './components/Forecast';
 import AirConditions from './components/AirConditions';
 import SearchBar from './components/SearchBar';
-import PrevisionsWeather from './components/PrevisionsWeather';
+import PrevisionsWeatherFiveDays from './components/PrevisionsWeatherFiveDays';
 import Loading from './components/Loading';
 import Heure from './components/Heure';
 
@@ -33,11 +33,11 @@ function App() {
   }, [city]);
 
   const handleCitySearch = (searchedCity) => {
-    setCity(searchedCity);
+    setCity(searchedCity);  // Met à jour la ville recherchée
   };
 
   const handleSelectCityFromNavbar = (selectedCity) => {
-    setCity(selectedCity);
+    setCity(selectedCity);  // Met à jour la ville sélectionnée dans la Navbar
   };
 
   return (
@@ -59,7 +59,7 @@ function App() {
                 <AirConditions city={city} />
               </div>
               <div className="previsions-box">
-                <PrevisionsWeather />
+                <PrevisionsWeatherFiveDays city={city} /> 
               </div>
             </div>
           </div>

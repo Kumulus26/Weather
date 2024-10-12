@@ -99,7 +99,7 @@ body {
   display: none;
 }
 
-.weather-info {
+.weather-info-box {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -119,6 +119,7 @@ body {
   margin-bottom: 10px;
   text-align: center;
 }
+
 .forecast-item {
   display: flex;
   flex-direction: row;
@@ -147,49 +148,35 @@ body {
   padding: 10px;
 }
 
-.previsions-container {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.previsions-container h3 {
-  font-size: 23px;
-  color: #a0aec0;
-}
-
-.previsions-list {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  margin: 10px 0;
-}
-
-.prevision-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .previsionsFiveDays-container h3 {
   font-size: 23px;
-  color: #a0aec0;
+  color: white;
 }
 
 .previsionFiveDays-item {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-bottom: 0;
 }
 
 .previsionsFiveDays-list {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  }
+}
+
+.previsions-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+  padding: 16px;
+  height: 100%;
+}
 
 .dynamic-title-box {
   display: flex;
@@ -250,7 +237,6 @@ body {
     background-color: #374151;
   }
 
-  
   .main-content {
     display: grid;
     grid-template-rows: auto 1fr;
@@ -297,15 +283,6 @@ body {
     border-radius: 12px;
   }
 
-  .weather-info {
-    background-color: #1f2937;
-    padding: 10px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-
   .ville-temp {
     display: flex;
     flex-direction: column;
@@ -316,7 +293,7 @@ body {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      background-color: #1f2937;
+      background-color: var(--primary-color); 
       border-radius: 12px;
       padding-bottom: 20px;
     }
@@ -330,7 +307,7 @@ body {
     .air-conditions {
       display: flex;
       justify-content: space-around;
-      background-color: #1f2937;
+      background-color: var(--primary-color); 
       border: none;
       border-radius: 12px;
     }
@@ -349,30 +326,18 @@ body {
       color: white;
     }
 
-    .previsions-box {
-      margin-top: 10px;
-    }
-    .previsions-container {
-      display: flex;
+    .previsionsFiveDays-list {
       flex-direction: column;
-      justify-content: space-around;
-      background-color: #1f2937;
-      border-radius: 12px;
-      height: 80vh;
+      justify-content: space-between;
+      align-items: stretch;
+      width: 100%;
+      gap: 20px;
+      height: 100%;
     }
-
-    .previsions-list {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-    }
-
-    .prevision-item {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 18px 0;  
-      border-bottom: 3px solid #2d3748;
+  
+    .previsionFiveDays-item {
+      flex-grow: 1;
+      justify-content: center; 
     }
 }
 
