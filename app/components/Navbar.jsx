@@ -25,12 +25,12 @@ function Navbar({ onSelectCity }) {
   const toggleDarkMode = () => {
     const newDarkMode = !isDarkMode;
     setIsDarkMode(newDarkMode);
-    localStorage.setItem('darkMode', newDarkMode); // Sauvegarde la préférence dans le localStorage
+    localStorage.setItem('darkMode', newDarkMode);
   };
 
   useEffect(() => {
     const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    setIsDarkMode(savedDarkMode); // Récupère la préférence au chargement de la page
+    setIsDarkMode(savedDarkMode);
 
     if (savedDarkMode) {
       document.body.classList.add('dark-mode');

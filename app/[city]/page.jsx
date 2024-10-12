@@ -13,7 +13,7 @@ import Heure from '../components/Heure';
 function App() {
   const router = useRouter();
   const params = useParams();
-  const city = decodeURIComponent(params.city || 'Paris'); // Récupère la ville depuis les paramètres de l'URL
+  const city = decodeURIComponent(params.city || 'Paris');
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -34,16 +34,16 @@ function App() {
 
   useEffect(() => {
     if (city) {
-      fetchWeatherData(city); // Récupère les données météo pour la ville de l'URL
+      fetchWeatherData(city);
     }
   }, [city]);
 
   const handleCitySearch = (searchedCity) => {
-    router.push(`/${searchedCity}`); // Redirige vers la nouvelle ville
+    router.push(`/${searchedCity}`);
   };
 
   const handleSelectCityFromNavbar = (selectedCity) => {
-    router.push(`/${selectedCity}`); // Redirige via la navbar vers la nouvelle ville
+    router.push(`/${selectedCity}`);
   };
 
   return (
@@ -65,7 +65,6 @@ function App() {
                 <AirConditions city={city} />
               </div>
               <div className="previsions-box">
-                {/* Transmet la ville au composant PrevisionsWeatherFiveDays */}
                 <PrevisionsWeatherFiveDays city={city} />
               </div>
             </div>

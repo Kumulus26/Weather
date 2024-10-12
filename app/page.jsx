@@ -33,11 +33,11 @@ function App() {
   }, [city]);
 
   const handleCitySearch = (searchedCity) => {
-    setCity(searchedCity);  // Met à jour la ville recherchée
+    setCity(searchedCity);
   };
 
   const handleSelectCityFromNavbar = (selectedCity) => {
-    setCity(selectedCity);  // Met à jour la ville sélectionnée dans la Navbar
+    setCity(selectedCity);
   };
 
   return (
