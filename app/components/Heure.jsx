@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function Heure({ city }) {
-  const [time, setTime] = useState('');
+  const [localTime, setLocalTime] = useState('');
+  const [parisTime, setParisTime] = useState('');
 
   useEffect(() => {
     const fetchCityData = async () => {
@@ -14,17 +15,29 @@ function Heure({ city }) {
         const { timezone } = response.data;
 
         const updateTime = () => {
-          const parisTime = new Date().toLocaleTimeString('fr-FR', {
-            timeZone: 'Europe/Paris',
+          const now = new Date();
+
+          const utcTime = now.getTime() + now.getTimezoneOffset() * 60000;
+
+          const parisTimeString = new Date(utcTime + 3600 * 1000).toLocaleTimeString('fr-FR', {
             hour: '2-digit',
             minute: '2-digit',
             second: '2-digit',
           });
-          setTime(parisTime);
+
+          const localTimeOffset = utcTime + timezone * 1000;
+          const localTimeString = new Date(localTimeOffset).toLocaleTimeString('fr-FR', {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+          });
+
+          setLocalTime(localTimeString);
+          setParisTime(parisTimeString);
         };
 
         updateTime();
-        const intervalId = setInterval(updateTime, 1000); 
+        const intervalId = setInterval(updateTime, 1000);
 
         return () => clearInterval(intervalId);
       } catch (error) {
@@ -39,7 +52,7 @@ function Heure({ city }) {
 
   return (
     <div className="heure">
-      <p className="text-6xl font-bold">{time}</p>
+      <p className="text-5xl">{localTime}</p>
     </div>
   );
 }
